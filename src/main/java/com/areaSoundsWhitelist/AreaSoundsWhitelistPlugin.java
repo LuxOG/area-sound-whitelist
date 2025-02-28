@@ -88,7 +88,7 @@ public class AreaSoundsWhitelistPlugin extends Plugin
 	private void setupWhitelist() {
 		List<String> ids = Text.fromCSV(config.whitelist());
 		soundsToWhitelist = ids.stream()
-			.mapToInt(id -> Integer.parseInt(id))
+			.map(Integer::parseInt)
 			.collect(Collectors.toCollection(HashSet::new));
 	}
 }
