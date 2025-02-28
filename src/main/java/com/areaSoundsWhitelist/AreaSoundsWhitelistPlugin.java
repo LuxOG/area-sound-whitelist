@@ -5,6 +5,7 @@ import java.util.Deque;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
@@ -19,6 +20,7 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.util.Text;
 
 @Slf4j
 @PluginDescriptor(
@@ -40,16 +42,7 @@ public class AreaSoundsWhitelistPlugin extends Plugin
 	@Override
 	protected void startUp() throws Exception
 	{
-		soundsToWhitelist = new HashSet<>();
-		soundsToWhitelist.clear();
-
-		String[] ids = config.whitelist().split(",");
-		for (int i = 0; i < ids.length; i++) {
-			if (ids[i].equals("")) {
-				continue;
-			}
-			soundsToWhitelist.add(Integer.parseInt(ids[i]));
-		}
+		setupWhitelist();
 	}
 
 	@Override
@@ -74,11 +67,7 @@ public class AreaSoundsWhitelistPlugin extends Plugin
 
 	@Subscribe
 	public void onConfigChanged(ConfigChanged configChanged) {
-		soundsToWhitelist.clear();
-		String[] ids = config.whitelist().split(",");
-		for (int i = 0; i < ids.length; i++) {
-			soundsToWhitelist.add(Integer.parseInt(ids[i]));
-		}
+		setupWhitelist();
 	}
 
 	@Subscribe
@@ -94,5 +83,12 @@ public class AreaSoundsWhitelistPlugin extends Plugin
 	AreaSoundsWhitelistConfig provideConfig(ConfigManager configManager)
 	{
 		return configManager.getConfig(AreaSoundsWhitelistConfig.class);
+	}
+
+	private void setupWhitelist() {
+		List<String> ids = Text.fromCSV(config.whitelist());
+		soundsToWhitelist = ids.stream()
+			.mapToInt(id -> Integer.parseInt(id))
+			.collect(Collectors.toCollection(HashSet::new));
 	}
 }
