@@ -59,7 +59,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 		keyName = "dragonClaws",
 		name = "Dragon claws",
 		description = "Whitelists the area sounds for the Dragon claws special attack",
-		section = npcSection
+		section = itemSection
 	)
 	default boolean whitelistDragonClaws()
 	{
