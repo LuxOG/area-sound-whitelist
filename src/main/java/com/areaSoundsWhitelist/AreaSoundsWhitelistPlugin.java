@@ -1,6 +1,8 @@
 package com.areaSoundsWhitelist;
 
 import com.google.inject.Provides;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Deque;
 import java.util.HashSet;
 import java.util.List;
@@ -76,7 +78,6 @@ public class AreaSoundsWhitelistPlugin extends Plugin
 		if (!soundsToWhitelist.contains(soundId)) {
 			areaSoundEffectPlayed.consume();
 		}
-
 	}
 
 	@Provides
@@ -90,5 +91,33 @@ public class AreaSoundsWhitelistPlugin extends Plugin
 		soundsToWhitelist = ids.stream()
 			.map(Integer::parseInt)
 			.collect(Collectors.toCollection(HashSet::new));
+
+		// Add NPC area sounds
+		if (config.whitelistSotetsegDeathBall())
+		{
+			soundsToWhitelist.add(AreaSoundEffectID.SOTETSEG_DEATH_BALL);
+		}
+
+		if (config.whitelistXarpusSpit())
+		{
+			soundsToWhitelist.add(AreaSoundEffectID.XARPUS_SPIT);
+		}
+
+		if (config.whitelistSolHereditAttacks())
+		{
+			for (int sid : AreaSoundEffectID.SOL_HEREDIT_ATTACKS)
+			{
+				soundsToWhitelist.add(sid);
+			}
+		}
+
+		// Add item area sounds
+		if (config.whitelistDragonClaws())
+		{
+			for (int sid : AreaSoundEffectID.DRAGON_CLAWS_SPEC)
+			{
+				soundsToWhitelist.add(sid);
+			}
+		}
 	}
 }
