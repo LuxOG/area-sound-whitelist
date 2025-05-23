@@ -92,17 +92,58 @@ public class AreaSoundsWhitelistPlugin extends Plugin
 			.map(Integer::parseInt)
 			.collect(Collectors.toCollection(HashSet::new));
 
-		// Add NPC area sounds
+		// Add NPC area sounds =========================================================================================
+		// ToB ---------------------------------------------------------------------------------------------------------
+		if (config.whitelistMaidenBlood())
+		{
+			for (int sid : AreaSoundEffectID.TOB_MAIDEN_BLOOD_TARGET)
+			{
+				soundsToWhitelist.add(sid);
+			}
+		}
+
+		if (config.whitelistBloatLimbs())
+		{
+			soundsToWhitelist.add(AreaSoundEffectID.TOB_BLOAT_LIMBS);
+		}
+
+		if (config.whitelistSotetsegAutos())
+		{
+			for (int sid : AreaSoundEffectID.TOB_SOTETSEG_AUTOS)
+			{
+				soundsToWhitelist.add(sid);
+			}
+		}
+
 		if (config.whitelistSotetsegDeathBall())
 		{
-			soundsToWhitelist.add(AreaSoundEffectID.SOTETSEG_DEATH_BALL);
+			soundsToWhitelist.add(AreaSoundEffectID.TOB_SOTETSEG_DEATH_BALL);
 		}
 
 		if (config.whitelistXarpusSpit())
 		{
-			soundsToWhitelist.add(AreaSoundEffectID.XARPUS_SPIT);
+			soundsToWhitelist.add(AreaSoundEffectID.TOB_XARPUS_SPIT);
 		}
 
+		if (config.whitelistVerzikP2Autos())
+		{
+			soundsToWhitelist.add(AreaSoundEffectID.TOB_VERZIK_P2_AUTOS);
+		}
+
+		if (config.whitelistVerzikP3Autos())
+		{
+			for (int sid : AreaSoundEffectID.TOB_VERZIK_P3_AUTOS)
+			{
+				soundsToWhitelist.add(sid);
+			}
+		}
+
+		if (config.whitelistVerzikYellows())
+		{
+			soundsToWhitelist.add(AreaSoundEffectID.TOB_VERZIK_YELLOW_POOLS);
+		}
+
+		// Misc --------------------------------------------------------------------------------------------------------
 		if (config.whitelistSolHereditAttacks())
 		{
 			for (int sid : AreaSoundEffectID.SOL_HEREDIT_ATTACKS)
@@ -111,7 +152,20 @@ public class AreaSoundsWhitelistPlugin extends Plugin
 			}
 		}
 
-		// Add item area sounds
+		if (config.whitelistYama())
+		{
+			for (int sid : AreaSoundEffectID.YAMA)
+			{
+				soundsToWhitelist.add(sid);
+			}
+		}
+
+		// Add item area sounds ========================================================================================
+		if (config.whitelistBurningClaws())
+		{
+			soundsToWhitelist.add(AreaSoundEffectID.BURNING_CLAWS_SPEC);
+		}
+
 		if (config.whitelistDragonClaws())
 		{
 			for (int sid : AreaSoundEffectID.DRAGON_CLAWS_SPEC)
