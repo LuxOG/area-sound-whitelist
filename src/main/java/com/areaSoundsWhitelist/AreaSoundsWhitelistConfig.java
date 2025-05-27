@@ -115,7 +115,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 	@ConfigSection(
 		position = 1,
 		name = "Other NPCs",
-		description = "ToB area sounds to whitelist"
+		description = "Other NPC-related area sounds to whitelist"
 	)
 	String otherNpcSection = "Other NPCs";
 
@@ -135,7 +135,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 		position = 1,
 		keyName = "yama",
 		name = "Yama",
-		description = "Whitelists the area sounds for Yama",
+		description = "Whitelists the area sounds for Yama's basic attacks",
 		section = otherNpcSection
 	)
 	default boolean whitelistYama()
@@ -155,7 +155,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 		position = 0,
 		keyName = "burningClaws",
 		name = "Burning claws",
-		description = "Whitelists the area sound for the Burning claws special attack",
+		description = "Whitelists the area sounds for the Burning claws special attack",
 		section = itemSection
 	)
 	default boolean whitelistBurningClaws()
@@ -180,7 +180,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 		position = 3,
 		keyName = "whitelist",
 		name = "Area Sound Whitelist",
-		description = "Comma separated list of sound ids to be unmuted"
+		description = "Comma separated list of sound IDs to be unmuted"
 	)
 	default String whitelist()
 	{
