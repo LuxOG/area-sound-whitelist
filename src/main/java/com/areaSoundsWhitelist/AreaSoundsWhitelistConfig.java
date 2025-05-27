@@ -154,7 +154,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 	@ConfigItem(
 		position = 0,
 		keyName = "burningClaws",
-		name = "Burning claws",
+		name = "Burning Claws",
 		description = "Whitelists the area sounds for the Burning claws special attack",
 		section = itemSection
 	)
@@ -166,7 +166,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 	@ConfigItem(
 		position = 1,
 		keyName = "dragonClaws",
-		name = "Dragon claws",
+		name = "Dragon Claws",
 		description = "Whitelists the area sounds for the Dragon claws special attack",
 		section = itemSection
 	)
