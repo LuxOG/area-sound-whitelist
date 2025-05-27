@@ -93,6 +93,23 @@ public class AreaSoundsWhitelistPlugin extends Plugin
 			.collect(Collectors.toCollection(HashSet::new));
 
 		// Add NPC area sounds =========================================================================================
+		// CoX ---------------------------------------------------------------------------------------------------------
+		if (config.whitelistOlmAutos())
+		{
+			for (int sid : AreaSoundEffectID.COX_OLM_AUTOS)
+			{
+				soundsToWhitelist.add(sid);
+			}
+		}
+
+		if (config.whitelistOlmSpecials())
+		{
+			for (int sid : AreaSoundEffectID.COX_OLM_SPECIALS)
+			{
+				soundsToWhitelist.add(sid);
+			}
+		}
+
 		// ToB ---------------------------------------------------------------------------------------------------------
 		if (config.whitelistMaidenBlood())
 		{

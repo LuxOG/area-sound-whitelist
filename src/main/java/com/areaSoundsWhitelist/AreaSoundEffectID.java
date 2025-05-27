@@ -3,6 +3,9 @@ package com.areaSoundsWhitelist;
 public final class AreaSoundEffectID
 {
 	// NPC sounds
+	final static int[] COX_OLM_AUTOS = new int[] { 1784,3749 };
+	final static int[] COX_OLM_SPECIALS = new int[] { 154,3424,3821,3887 };
+
 	final static int[] TOB_MAIDEN_BLOOD_TARGET = new int[] { 3547,4002 };
 	final static int TOB_BLOAT_LIMBS = 3308;
 	final static int[] TOB_SOTETSEG_AUTOS = new int[] { 3539,3996,4015 };

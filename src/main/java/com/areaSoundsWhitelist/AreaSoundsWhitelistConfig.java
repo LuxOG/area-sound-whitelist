@@ -8,9 +8,41 @@ import net.runelite.client.config.ConfigSection;
 @ConfigGroup("whitelist")
 public interface AreaSoundsWhitelistConfig extends Config
 {
-	// ToB section =====================================================================================================
+	// CoX section =====================================================================================================
 	@ConfigSection(
 		position = 0,
+		name = "Chambers of Xeric",
+		description = "CoX area sounds to whitelist"
+	)
+	String coxSection = "Chambers of Xeric";
+
+	@ConfigItem(
+		position = 0,
+		keyName = "olmAuto",
+		name = "Olm Basic Attacks",
+		description = "Whitelists the area sounds for Olm's basic attacks",
+		section = coxSection
+	)
+	default boolean whitelistOlmAutos()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+		position = 1,
+		keyName = "olmSpecial",
+		name = "Olm Special Attacks",
+		description = "Whitelists the area sounds for Olm's special attacks",
+		section = coxSection
+	)
+	default boolean whitelistOlmSpecials()
+	{
+		return false;
+	}
+
+	// ToB section =====================================================================================================
+	@ConfigSection(
+		position = 1,
 		name = "Theatre of Blood",
 		description = "ToB area sounds to whitelist"
 	)
@@ -19,7 +51,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 	@ConfigItem(
 		position = 0,
 		keyName = "maidenBlood",
-		name = "Maiden",
+		name = "Maiden Blood Attack",
 		description = "Whitelists the area sounds for Maiden's targeted blood attack",
 		section = tobSection
 	)
@@ -31,7 +63,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 	@ConfigItem(
 		position = 1,
 		keyName = "bloatLimbs",
-		name = "Bloat",
+		name = "Bloat Falling Limbs",
 		description = "Whitelists the area sounds for falling limbs at Bloat",
 		section = tobSection
 	)
@@ -67,7 +99,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 	@ConfigItem(
 		position = 4,
 		keyName = "xarpusSpit",
-		name = "Xarpus",
+		name = "Xarpus Spit",
 		description = "Whitelists the area sounds for Xarpus' spit",
 		section = tobSection
 	)
@@ -79,7 +111,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 	@ConfigItem(
 		position = 5,
 		keyName = "verzikP2Auto",
-		name = "Verzik P2",
+		name = "Verzik P2 Basic Attacks",
 		description = "Whitelists the area sounds for Verzik's basic attacks during P2",
 		section = tobSection
 	)
@@ -91,7 +123,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 	@ConfigItem(
 		position = 6,
 		keyName = "verzikP3Auto",
-		name = "Verzik P3",
+		name = "Verzik P3 Basic Attacks",
 		description = "Whitelists the area sounds for Verzik's basic attacks during P3",
 		section = tobSection
 	)
@@ -113,7 +145,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 	}
 
 	@ConfigSection(
-		position = 1,
+		position = 2,
 		name = "Other NPCs",
 		description = "Other NPC-related area sounds to whitelist"
 	)
@@ -145,7 +177,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 
 	// Items section ===================================================================================================
 	@ConfigSection(
-		position = 2,
+		position = 3,
 		name = "Items",
 		description = "Item area sounds to whitelist"
 	)
@@ -177,10 +209,10 @@ public interface AreaSoundsWhitelistConfig extends Config
 
 	// No section ======================================================================================================
 	@ConfigItem(
-		position = 3,
+		position = 15,
 		keyName = "whitelist",
 		name = "Area Sound Whitelist",
-		description = "Comma separated list of sound IDs to be unmuted"
+		description = "Comma-separated list of any additional sound IDs to be unmuted"
 	)
 	default String whitelist()
 	{
@@ -188,7 +220,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 	}
 
 	@ConfigItem(
-		position = 4,
+		position = 16,
 		keyName = "muteAmbient",
 		name = "Mute Ambient Sounds",
 		description = "Mutes all ambient sounds upon loading into a map. These cannot be whitelisted. " +
