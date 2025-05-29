@@ -153,6 +153,18 @@ public interface AreaSoundsWhitelistConfig extends Config
 
 	@ConfigItem(
 		position = 0,
+		keyName = "royalTitansSlam",
+		name = "Royal Titans Slam",
+		description = "Whitelists the area sounds for the Royal Titans' ground slam attack",
+		section = otherNpcSection
+	)
+	default boolean whitelistRoyalTitansSlam()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+		position = 1,
 		keyName = "solHeredit",
 		name = "Sol Heredit",
 		description = "Whitelists the area sounds for Sol Heredit's attacks",
@@ -164,7 +176,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 	}
 
 	@ConfigItem(
-		position = 1,
+		position = 2,
 		keyName = "yama",
 		name = "Yama",
 		description = "Whitelists the area sounds for Yama's basic attacks",
@@ -209,7 +221,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 
 	// No section ======================================================================================================
 	@ConfigItem(
-		position = 15,
+		position = 16,
 		keyName = "whitelist",
 		name = "Area Sound Whitelist",
 		description = "Comma-separated list of any additional sound IDs to be unmuted"
@@ -220,7 +232,7 @@ public interface AreaSoundsWhitelistConfig extends Config
 	}
 
 	@ConfigItem(
-		position = 16,
+		position = 17,
 		keyName = "muteAmbient",
 		name = "Mute Ambient Sounds",
 		description = "Mutes all ambient sounds upon loading into a map. These cannot be whitelisted. " +

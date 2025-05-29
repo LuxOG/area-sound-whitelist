@@ -161,6 +161,14 @@ public class AreaSoundsWhitelistPlugin extends Plugin
 		}
 
 		// Misc --------------------------------------------------------------------------------------------------------
+		if (config.whitelistRoyalTitansSlam())
+		{
+			for (int sid : AreaSoundEffectID.ROYAL_TITANS_SLAM)
+			{
+				soundsToWhitelist.add(sid);
+			}
+		}
+
 		if (config.whitelistSolHereditAttacks())
 		{
 			for (int sid : AreaSoundEffectID.SOL_HEREDIT_ATTACKS)
